@@ -98,7 +98,7 @@ map.on('locationfound',function(e){
       	type: 'Feature',
       	geometry: {
         	type: 'Point',
-          	coordinates: [e.latlng.lng, e.latlong.lat]
+          	coordinates: [ e.latlng.lng, e.latlng.lat]
         },
       	properties: {
         	"title": "Here I am!",
