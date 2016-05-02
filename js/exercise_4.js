@@ -63,13 +63,13 @@ var clickHandler = function(e){
       	info += '<div>';
       	info += '<h2>' + feature.properties.name + '</h2>';
       	if (feature.properties.cuisine) {
-          	info += '<p>' + feature.properties.cuisine + '<p>';
+          	info += '<p>' + "This restaurant features" + feature.properties.cuisine + '<p>';
         }
       	else if (feature.properties.phone) {
-        	info += '<p>' + feature.properties.phone + '</p>';
+        	info += '<p>' + "Phone number: " + feature.properties.phone + '</p>';
         }
       	else if (feature.properties.website) {
-        	info += '<p><a href="' + feature.properties.website + '">' + feature.properties.website + '</a></p>';
+        	info += '<p><a href="' + feature.properties.website + '">' + "Website: " + feature.properties.website + '</a></p>';
         }
       	else {
         	info += '<p>No restaurant info available.</p>';
