@@ -69,7 +69,7 @@ var clickHandler = function(e){
         	info += '<p>' + "Phone number: " + feature.properties.phone + '</p>';
         }
       	else if (feature.properties.website) {
-        	info += '<p><a href="' + feature.properties.website + '">' + "Website: " + feature.properties.website + '</a></p>';
+        	info += '<p>' + '<a href=" + feature.properties.website + ">' + "Website: " + feature.properties.website + '</a></p>';
         }
       	else {
         	info += '<p>No restaurant info available.</p>';
@@ -87,7 +87,7 @@ featureLayer.on('ready', function(){
 })
 
 // The sidebar then fades out when you 'click' off somewhere in the empty 'map' object, which
-// in this case is anywhere in the map that is not a feature. 
+// in this case is anywhere in the map that is not a featureLayer object. 
 map.on('click', function(){
 	$('#sidebar').fadeOut(200);
 })
