@@ -77,6 +77,8 @@ var clickHandler = function(e){
       	info += '</div>';
       	$('#info').append(info);
     })
+    var myGeoJSON = myLocation.getGeoJSON();
+    getDirections(myGeoJSON.geometry.coordinates,feature.geometry.coordinates)
 }
 
 // This actually calls the function we made above, when the event 'click' happens to a feature.
@@ -98,7 +100,7 @@ var myLocation = L.mapbox.featureLayer().addTo(map);
 // This function runs when the map receives the 'locationfound' event trigger
 // which happens after a person hits the "allow" button when asked for GPS location.
 // The function defines a single 'Feature', and also that it is a 'Point',
-// and then the lat/long of the point is taken from 
+// and then the lat/long of the point is *somehow?* taken from the GPS location event?
 map.on('locationfound',function(e){
 	myLocation.setGeoJSON({
       	type: 'Feature',
@@ -116,6 +118,38 @@ map.on('locationfound',function(e){
 
 map.locate({setView: false})	// this can be set to true to zoom right into GPS location
 
+var routeLine = L.mapbox.featureLayer().addTo(map);
 
+function getDirections(frm, to) {
+	var jsonPayload = JSON.stringify({
+    	locations: [
+          {lat: frm[1], lon: frm[0]},
+          {lat: to[1], lon: to[0]}
+        ]
+      	costing: 'pedestrian'
+      	units: 'miles'
+    })
+    $.ajax({
+    	url: 'https://valhalla.mapzen.com/route'
+      	data: {
+    		json: jsonPayload,
+      		api_key: 'valhalla-gwtf3x2'
+    	}
+    }).done(function(data){
+     	 var routeShape = polyline.decode(data.trip.legs[0].shape);
+      	 routeLine.setGeoJSON({
+           	type: 'Feature',
+           	geometry: {
+              	type: 'LineString',
+              	coordinates: routeShape
+            }
+           	properties: {
+         		"stroke": "#ed23f1",
+           		"stroke-opacity": 0.8,
+           		"stroke-width": 8
+         	}
+         })
+       })
+}
 
 
