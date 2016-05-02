@@ -126,7 +126,7 @@ function getDirections(frm, to) {
           {lat: frm[1], lon: frm[0]},
           {lat: to[1], lon: to[0]}
         ]
-      	costing: 'pedestrian'
+      	costing: 'pedestrian',
       	units: 'miles'
     })
     $.ajax({
