@@ -109,7 +109,7 @@ map.on('locationfound',function(e){
     })
 })
 
-map.locate({setView: false})
+map.locate({setView: true)
 
 
 
