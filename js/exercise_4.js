@@ -70,7 +70,7 @@ featureLayer.on('ready', function(){
 	this.eachLayer(function(){
     	layer.on('click', clickHandler)
     })
-}
+})
 
 
 
