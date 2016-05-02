@@ -65,11 +65,14 @@ var clickHandler = function(e){
       	if (feature.properties.cuisine) {
           	info += '<p>' + feature.properties.cuisine + '<p>';
         }
-      	if (feature.properties.phone) {
+      	else if (feature.properties.phone) {
         	info += '<p>' + feature.properties.phone + '</p>';
         }
-      	if (feature.properties.website) {
+      	else if (feature.properties.website) {
         	info += '<p><a href="' + feature.properties.website + '">' + feature.properties.website + '</a></p>';
+        }
+      	else {
+        	info += '<p>No restaurant info available.</p>';
         }
       	info += '</div>';
       	$('#info').append(info);
