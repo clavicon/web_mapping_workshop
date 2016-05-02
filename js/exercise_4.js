@@ -92,8 +92,13 @@ map.on('click', function(){
 	$('#sidebar').fadeOut(200);
 })
 
-var myLocation = L.mapbox.featureLayer().addTo(map);
+// creates an empty featureLayer, adds it to the map
+var myLocation = L.mapbox.featureLayer().addTo(map);	
 
+// This function runs when the map receives the 'locationfound' event trigger
+// which happens after a person hits the "allow" button when asked for GPS location.
+// The function defines a single 'Feature', and also that it is a 'Point',
+// and then the lat/long of the point is taken from 
 map.on('locationfound',function(e){
 	myLocation.setGeoJSON({
       	type: 'Feature',
@@ -102,7 +107,7 @@ map.on('locationfound',function(e){
           	coordinates: [ e.latlng.lng, e.latlng.lat]
         },
       	properties: {
-        	"title": "Here I am!",
+        	"title": "You are here!",
           	"marker-color": "#ff8888",
           	"marker-symbol": "star"
         }
