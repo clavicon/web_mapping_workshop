@@ -29,7 +29,7 @@ featureLayer.on('ready', function(){
 	this.eachLayer(function(layer){
     	layer.setIcon(L.mapbox.marker.icon({
         	"marker-color": "#8834bb",
-          	"marker-size": "large",
+          	"marker-size": "small",
           	"marker-symbol": "restaurant"
         }))
     })
@@ -52,8 +52,6 @@ featureLayer.on('ready', function(){
 // and create a <div> and fill it with that information; so a lot of this function is 
 // actually translating the geojson info into HTML to append into the new <div> being created
 // and this <div> sits inside the sidebar <div> that has already been defined in index.html.
-// The sidebar then fades out when you click off somewhere in the empty 'map' object, which
-// in this case is anywhere in the map that is not a feature. 
 var clickHandler = function(e){
 	$('#info').empty();
    
@@ -78,12 +76,15 @@ var clickHandler = function(e){
     })
 }
 
+// This actually calls the function we made above, when the event 'click' happens to a feature.
 featureLayer.on('ready', function(){
 	this.eachLayer(function(layer){
     	layer.on('click', clickHandler)
     })
 })
 
+// The sidebar then fades out when you 'click' off somewhere in the empty 'map' object, which
+// in this case is anywhere in the map that is not a feature. 
 map.on('click', function(){
 	$('#sidebar').fadeOut(200);
 })
