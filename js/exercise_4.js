@@ -63,7 +63,7 @@ var clickHandler = function(e){
       	info += '<div>';
       	info += '<h2>' + feature.properties.name + '</h2>';
       	if (feature.properties.cuisine) {
-          	info += '<p>' + "This restaurant features" + feature.properties.cuisine + '<p>';
+          	info += '<p>' + "This restaurant features " + feature.properties.cuisine + '<p>';
         }
       	else if (feature.properties.phone) {
         	info += '<p>' + "Phone number: " + feature.properties.phone + '</p>';
