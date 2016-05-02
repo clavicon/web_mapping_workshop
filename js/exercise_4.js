@@ -69,7 +69,7 @@ var clickHandler = function(e){
         	info += '<p>' + "Phone number: " + feature.properties.phone + '</p>';
         }
       	else if (feature.properties.website) {
-        	info += '<p>' + '<a href=' + feature.properties.website + '>' + "Website: " + feature.properties.website + '</a></p>';
+        	info += '<p>' + '<a href=' + feature.properties.website + '>Website: ' + feature.properties.website + '</a></p>';
         }
       	else {
         	info += '<p>No restaurant info available.</p>';
