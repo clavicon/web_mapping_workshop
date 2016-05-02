@@ -148,8 +148,13 @@ function getDirections(frm, to) {
            		"stroke-opacity": 0.8,
            		"stroke-width": 8
          	}
-         })
-       })
+        })
+        $('#directions').fadeIn(400, funtion(){
+			var summary = data.trip.summary
+			$('#summary').empty();
+			$('#distance').text(Math.round(summary.length * 100)/100 + ' ' + data.trip.units);
+			$('#time').text((Math.round(summary.time / 60 * 100)/100 + ' min');
+			                   
+       }
+    })
 }
-
-
