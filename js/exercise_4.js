@@ -142,7 +142,7 @@ function getDirections(frm, to) {
            	geometry: {
               	type: 'LineString',
               	coordinates: routeShape
-            }
+            },
            	properties: {
          		"stroke": "#ed23f1",
            		"stroke-opacity": 0.8,
