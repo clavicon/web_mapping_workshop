@@ -109,7 +109,7 @@ map.on('locationfound',function(e){
     })
 })
 
-map.locate({setView: true})
+map.locate({setView: false})	// this can be set to true to zoom right into GPS location
 
 
 
